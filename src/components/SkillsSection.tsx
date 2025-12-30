@@ -1,9 +1,8 @@
-import { Code2, Database, Layout, Server, GitBranch, Cloud } from "lucide-react";
+import { Code2, Database, Layout, Server, GitBranch, Cloud, Smartphone, Shield, Brain, Wrench } from "lucide-react";
 
 interface Skill {
   name: string;
   level: number;
-  category: string;
 }
 
 interface SkillCategory {
@@ -17,66 +16,130 @@ const skillCategories: SkillCategory[] = [
     name: "Frontend",
     icon: <Layout className="w-6 h-6" />,
     skills: [
-      { name: "React", level: 95, category: "Frontend" },
-      { name: "TypeScript", level: 90, category: "Frontend" },
-      { name: "Next.js", level: 88, category: "Frontend" },
-      { name: "Tailwind CSS", level: 92, category: "Frontend" },
-      { name: "Vue.js", level: 75, category: "Frontend" },
+      { name: "React / React Native", level: 95 },
+      { name: "TypeScript", level: 92 },
+      { name: "Next.js", level: 88 },
+      { name: "Vue.js / Nuxt", level: 78 },
+      { name: "Tailwind CSS", level: 95 },
+      { name: "HTML5 / CSS3 / SASS", level: 95 },
+      { name: "Redux / Zustand", level: 88 },
+      { name: "Framer Motion", level: 82 },
     ]
   },
   {
     name: "Backend",
     icon: <Server className="w-6 h-6" />,
     skills: [
-      { name: "Node.js", level: 90, category: "Backend" },
-      { name: "Python", level: 82, category: "Backend" },
-      { name: "Express", level: 88, category: "Backend" },
-      { name: "FastAPI", level: 78, category: "Backend" },
-      { name: "GraphQL", level: 80, category: "Backend" },
+      { name: "Node.js / Express", level: 92 },
+      { name: "Python / Django / FastAPI", level: 85 },
+      { name: "Java / Spring Boot", level: 75 },
+      { name: "GraphQL / Apollo", level: 85 },
+      { name: "REST API Design", level: 95 },
+      { name: "Microservices", level: 82 },
+      { name: "WebSocket / Socket.io", level: 85 },
+      { name: "gRPC", level: 70 },
     ]
   },
   {
     name: "Database",
     icon: <Database className="w-6 h-6" />,
     skills: [
-      { name: "PostgreSQL", level: 88, category: "Database" },
-      { name: "MongoDB", level: 85, category: "Database" },
-      { name: "Redis", level: 80, category: "Database" },
-      { name: "Prisma", level: 85, category: "Database" },
-      { name: "MySQL", level: 78, category: "Database" },
+      { name: "PostgreSQL", level: 90 },
+      { name: "MongoDB", level: 88 },
+      { name: "Redis", level: 85 },
+      { name: "MySQL / MariaDB", level: 85 },
+      { name: "Prisma / Drizzle", level: 88 },
+      { name: "Elasticsearch", level: 75 },
+      { name: "Firebase / Supabase", level: 85 },
+      { name: "DynamoDB", level: 72 },
     ]
   },
   {
-    name: "DevOps",
+    name: "DevOps & Cloud",
     icon: <Cloud className="w-6 h-6" />,
     skills: [
-      { name: "Docker", level: 85, category: "DevOps" },
-      { name: "AWS", level: 82, category: "DevOps" },
-      { name: "CI/CD", level: 88, category: "DevOps" },
-      { name: "Kubernetes", level: 70, category: "DevOps" },
-      { name: "Terraform", level: 65, category: "DevOps" },
+      { name: "Docker / Docker Compose", level: 90 },
+      { name: "AWS (EC2, S3, Lambda)", level: 85 },
+      { name: "CI/CD (GitHub Actions)", level: 92 },
+      { name: "Kubernetes", level: 75 },
+      { name: "Terraform / Pulumi", level: 70 },
+      { name: "Vercel / Netlify", level: 92 },
+      { name: "Nginx / Apache", level: 82 },
+      { name: "Linux / Bash", level: 88 },
     ]
   },
   {
-    name: "Tools",
-    icon: <GitBranch className="w-6 h-6" />,
+    name: "Mobile Development",
+    icon: <Smartphone className="w-6 h-6" />,
     skills: [
-      { name: "Git", level: 95, category: "Tools" },
-      { name: "VS Code", level: 92, category: "Tools" },
-      { name: "Figma", level: 75, category: "Tools" },
-      { name: "Jira", level: 85, category: "Tools" },
-      { name: "Linux", level: 80, category: "Tools" },
+      { name: "React Native", level: 88 },
+      { name: "Expo", level: 85 },
+      { name: "Flutter / Dart", level: 65 },
+      { name: "iOS (Swift basics)", level: 55 },
+      { name: "Android (Kotlin basics)", level: 55 },
+      { name: "PWA Development", level: 90 },
+    ]
+  },
+  {
+    name: "Testing & QA",
+    icon: <Shield className="w-6 h-6" />,
+    skills: [
+      { name: "Jest / Vitest", level: 90 },
+      { name: "React Testing Library", level: 88 },
+      { name: "Cypress / Playwright", level: 85 },
+      { name: "Unit Testing", level: 92 },
+      { name: "Integration Testing", level: 85 },
+      { name: "E2E Testing", level: 82 },
     ]
   },
   {
     name: "Languages",
     icon: <Code2 className="w-6 h-6" />,
     skills: [
-      { name: "JavaScript", level: 95, category: "Languages" },
-      { name: "TypeScript", level: 92, category: "Languages" },
-      { name: "Python", level: 82, category: "Languages" },
-      { name: "SQL", level: 88, category: "Languages" },
-      { name: "Rust", level: 55, category: "Languages" },
+      { name: "JavaScript / ES6+", level: 95 },
+      { name: "TypeScript", level: 92 },
+      { name: "Python", level: 85 },
+      { name: "SQL", level: 90 },
+      { name: "Java", level: 75 },
+      { name: "Go", level: 65 },
+      { name: "Rust", level: 55 },
+      { name: "C / C++", level: 60 },
+    ]
+  },
+  {
+    name: "AI & Data",
+    icon: <Brain className="w-6 h-6" />,
+    skills: [
+      { name: "OpenAI / GPT APIs", level: 88 },
+      { name: "LangChain", level: 75 },
+      { name: "TensorFlow / PyTorch", level: 60 },
+      { name: "Data Analysis (Pandas)", level: 72 },
+      { name: "Machine Learning basics", level: 65 },
+      { name: "RAG Applications", level: 78 },
+    ]
+  },
+  {
+    name: "Tools & Workflow",
+    icon: <GitBranch className="w-6 h-6" />,
+    skills: [
+      { name: "Git / GitHub", level: 95 },
+      { name: "VS Code", level: 95 },
+      { name: "Figma / Design Tools", level: 78 },
+      { name: "Jira / Linear", level: 88 },
+      { name: "Notion / Confluence", level: 85 },
+      { name: "Postman / Insomnia", level: 90 },
+    ]
+  },
+  {
+    name: "Architecture",
+    icon: <Wrench className="w-6 h-6" />,
+    skills: [
+      { name: "System Design", level: 85 },
+      { name: "Design Patterns", level: 88 },
+      { name: "Clean Architecture", level: 85 },
+      { name: "Domain-Driven Design", level: 75 },
+      { name: "Event-Driven Architecture", level: 78 },
+      { name: "API Gateway Patterns", level: 82 },
     ]
   },
 ];
@@ -101,35 +164,35 @@ const SkillsSection = () => {
         </div>
 
         {/* Skills Grid */}
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
           {skillCategories.map((category) => (
             <div 
               key={category.name}
-              className="bg-card rounded-xl p-6 border border-border shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-card rounded-xl p-5 border border-border shadow-lg hover:shadow-xl transition-all duration-300"
             >
               {/* Category Header */}
-              <div className="flex items-center gap-3 mb-6">
-                <div className="p-3 rounded-lg bg-primary/10 text-primary">
+              <div className="flex items-center gap-3 mb-5">
+                <div className="p-2.5 rounded-lg bg-primary/10 text-primary">
                   {category.icon}
                 </div>
-                <h3 className="text-xl font-semibold text-card-foreground">
+                <h3 className="text-lg font-semibold text-card-foreground">
                   {category.name}
                 </h3>
               </div>
 
               {/* Skills List */}
-              <div className="space-y-4">
+              <div className="space-y-3">
                 {category.skills.map((skill) => (
                   <div key={skill.name}>
                     <div className="flex justify-between mb-1">
-                      <span className="text-sm font-medium text-foreground">
+                      <span className="text-xs font-medium text-foreground">
                         {skill.name}
                       </span>
-                      <span className="text-sm font-mono text-muted-foreground">
+                      <span className="text-xs font-mono text-muted-foreground">
                         {skill.level}%
                       </span>
                     </div>
-                    <div className="h-2 bg-muted/30 rounded-full overflow-hidden">
+                    <div className="h-1.5 bg-muted/30 rounded-full overflow-hidden">
                       <div 
                         className="h-full bg-gradient-to-r from-primary to-chart-2 rounded-full transition-all duration-1000"
                         style={{ width: `${skill.level}%` }}
