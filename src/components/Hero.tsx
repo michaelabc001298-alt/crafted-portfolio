@@ -1,6 +1,6 @@
-import heroBg from "@/assets/hero-bg.jpg";
 import { Github, Linkedin, Mail, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import ParticleBackground from "@/components/ParticleBackground";
 
 const Hero = () => {
   const scrollToProjects = () => {
@@ -8,14 +8,12 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center overflow-hidden">
-      {/* Background Image with Overlay */}
-      <div 
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroBg})` }}
-      >
-        <div className="absolute inset-0 bg-gradient-to-r from-secondary/95 via-secondary/80 to-secondary/60" />
-      </div>
+    <section className="relative min-h-screen flex items-center overflow-hidden bg-secondary">
+      {/* Gradient Background */}
+      <div className="absolute inset-0 bg-gradient-to-br from-secondary via-secondary to-primary/20" />
+      
+      {/* Particle Animation */}
+      <ParticleBackground />
 
       {/* Content */}
       <div className="relative z-10 container mx-auto px-6 py-20">
@@ -110,7 +108,7 @@ const Hero = () => {
       </div>
 
       {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce z-10">
         <ChevronDown className="w-8 h-8 text-muted" />
       </div>
     </section>

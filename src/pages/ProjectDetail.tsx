@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Calendar, User, ExternalLink, Github } from "lucide-react";
+import { ArrowLeft, Calendar, User, ExternalLink, Github, ArrowRight } from "lucide-react";
 import { projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
@@ -8,6 +8,7 @@ import Footer from "@/components/Footer";
 const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
   const project = projects.find(p => p.id === id);
+  const currentIndex = projects.findIndex(p => p.id === id);
 
   if (!project) {
     return (
@@ -22,24 +23,34 @@ const ProjectDetail = () => {
     );
   }
 
+  // Get previous and next projects for navigation
+  const prevProject = currentIndex > 0 ? projects[currentIndex - 1] : projects[projects.length - 1];
+  const nextProject = currentIndex < projects.length - 1 ? projects[currentIndex + 1] : projects[0];
+
+  // Get other projects excluding current, previous, and next
+  const otherProjects = projects.filter(p => 
+    p.id !== project.id && p.id !== prevProject.id && p.id !== nextProject.id
+  ).slice(0, 4);
+
   return (
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Image */}
+      {/* Hero Image - Full width and clear display */}
       <div className="relative pt-16">
-        <div className="aspect-[21/9] overflow-hidden">
-          <img 
-            src={project.image} 
-            alt={project.title}
-            className="w-full h-full object-cover"
-          />
-          <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent" />
+        <div className="w-full bg-secondary">
+          <div className="container mx-auto px-6 py-8">
+            <img 
+              src={project.image} 
+              alt={project.title}
+              className="w-full max-h-[600px] object-contain rounded-xl shadow-2xl"
+            />
+          </div>
         </div>
       </div>
 
       {/* Content */}
-      <div className="container mx-auto px-6 -mt-32 relative z-10">
+      <div className="container mx-auto px-6 py-12">
         {/* Back Button */}
         <Link 
           to="/#projects"
@@ -131,37 +142,80 @@ const ProjectDetail = () => {
           </div>
         </div>
 
+        {/* Project Navigation */}
+        <div className="mt-12 grid md:grid-cols-2 gap-6">
+          <Link 
+            to={`/project/${prevProject.id}`}
+            className="group flex items-center gap-4 p-6 bg-card rounded-xl border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+          >
+            <ArrowLeft className="w-6 h-6 text-primary group-hover:-translate-x-1 transition-transform" />
+            <div className="flex-1">
+              <p className="text-sm text-muted-foreground mb-1">Previous Project</p>
+              <h3 className="font-semibold text-card-foreground group-hover:text-primary transition-colors">
+                {prevProject.title}
+              </h3>
+            </div>
+            <div className="w-16 h-16 rounded-lg overflow-hidden shrink-0">
+              <img 
+                src={prevProject.image} 
+                alt={prevProject.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+          </Link>
+
+          <Link 
+            to={`/project/${nextProject.id}`}
+            className="group flex items-center gap-4 p-6 bg-card rounded-xl border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+          >
+            <div className="w-16 h-16 rounded-lg overflow-hidden shrink-0">
+              <img 
+                src={nextProject.image} 
+                alt={nextProject.title}
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <div className="flex-1 text-right">
+              <p className="text-sm text-muted-foreground mb-1">Next Project</p>
+              <h3 className="font-semibold text-card-foreground group-hover:text-primary transition-colors">
+                {nextProject.title}
+              </h3>
+            </div>
+            <ArrowRight className="w-6 h-6 text-primary group-hover:translate-x-1 transition-transform" />
+          </Link>
+        </div>
+
         {/* Other Projects */}
         <div className="mt-16 mb-16">
           <h2 className="text-2xl font-bold text-foreground mb-8">
-            Other Projects
+            Explore More Projects
           </h2>
-          <div className="grid md:grid-cols-3 gap-6">
-            {projects
-              .filter(p => p.id !== project.id)
-              .slice(0, 3)
-              .map((p) => (
-                <Link 
-                  key={p.id}
-                  to={`/project/${p.id}`}
-                  className="group block"
-                >
-                  <div className="bg-card rounded-xl overflow-hidden border border-border hover:shadow-lg transition-all duration-300">
-                    <div className="aspect-video overflow-hidden">
-                      <img 
-                        src={p.image} 
-                        alt={p.title}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                      />
-                    </div>
-                    <div className="p-4">
-                      <h3 className="font-semibold text-card-foreground group-hover:text-primary transition-colors">
-                        {p.title}
-                      </h3>
-                    </div>
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            {otherProjects.map((p) => (
+              <Link 
+                key={p.id}
+                to={`/project/${p.id}`}
+                className="group block"
+              >
+                <div className="bg-card rounded-xl overflow-hidden border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                  <div className="aspect-video overflow-hidden">
+                    <img 
+                      src={p.image} 
+                      alt={p.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
                   </div>
-                </Link>
-              ))}
+                  <div className="p-4">
+                    <h3 className="font-semibold text-card-foreground group-hover:text-primary transition-colors line-clamp-1">
+                      {p.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground mt-1 line-clamp-2">
+                      {p.shortDescription}
+                    </p>
+                  </div>
+                </div>
+              </Link>
+            ))}
           </div>
         </div>
       </div>
