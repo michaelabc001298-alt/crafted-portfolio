@@ -1,5 +1,6 @@
 import { useParams, Link } from "react-router-dom";
-import { ArrowLeft, Calendar, User, ExternalLink, Github, ArrowRight } from "lucide-react";
+import { ArrowLeft, Calendar, User, ExternalLink, ArrowRight } from "lucide-react";
+import { useState, useEffect } from "react";
 import { projects } from "@/data/projects";
 import { Button } from "@/components/ui/button";
 import Navigation from "@/components/Navigation";
@@ -9,6 +10,13 @@ const ProjectDetail = () => {
   const { id } = useParams<{ id: string }>();
   const project = projects.find(p => p.id === id);
   const currentIndex = projects.findIndex(p => p.id === id);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  useEffect(() => {
+    setImageLoaded(false);
+    const timer = setTimeout(() => setImageLoaded(true), 100);
+    return () => clearTimeout(timer);
+  }, [id]);
 
   if (!project) {
     return (
@@ -33,18 +41,20 @@ const ProjectDetail = () => {
   ).slice(0, 4);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-gradient-to-b from-secondary via-background to-secondary/30">
       <Navigation />
       
       {/* Hero Image - Full width with animation */}
       <div className="relative pt-16">
-        <div className="w-full bg-gradient-to-b from-secondary to-background">
+        <div className="w-full">
           <div className="container mx-auto px-6 py-8">
             <img 
               src={project.image} 
               alt={project.title}
-              className="w-full max-h-[600px] object-contain rounded-xl shadow-2xl animate-fade-in"
-              style={{ animationDuration: '0.6s' }}
+              onLoad={() => setImageLoaded(true)}
+              className={`w-full max-h-[600px] object-contain rounded-xl shadow-2xl transition-all duration-700 ${
+                imageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+              }`}
             />
           </div>
         </div>
@@ -135,10 +145,6 @@ const ProjectDetail = () => {
             <Button className="gap-2">
               <ExternalLink className="w-4 h-4" />
               View Live Demo
-            </Button>
-            <Button variant="outline" className="gap-2">
-              <Github className="w-4 h-4" />
-              View Source Code
             </Button>
           </div>
         </div>
