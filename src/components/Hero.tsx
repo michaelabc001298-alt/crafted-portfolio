@@ -25,19 +25,19 @@ const Hero = () => {
                 Hello, I'm
               </p>
               <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-secondary-foreground leading-tight">
-                Alex
-                <span className="block text-primary">Chen</span>
+                Darren
+                <span className="block text-primary">Flores</span>
               </h1>
               <div className="h-1 w-24 bg-gradient-to-r from-primary to-chart-2 mx-auto lg:mx-0 rounded-full" />
               <p className="text-xl text-muted font-medium">
-                Full-Stack Developer
+                Senior Full Stack Engineer
               </p>
             </div>
             
             {/* Social Links */}
             <div className="flex gap-4 mt-8 justify-center lg:justify-start">
               <a 
-                href="https://github.com" 
+                href="https://github.com/JobStar-success" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-card/10 backdrop-blur-sm border border-border/20 text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
@@ -45,7 +45,7 @@ const Hero = () => {
                 <Github className="w-5 h-5" />
               </a>
               <a 
-                href="https://linkedin.com" 
+                href="https://www.linkedin.com/in/darren-flores-897067293" 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="p-3 rounded-full bg-card/10 backdrop-blur-sm border border-border/20 text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
@@ -53,7 +53,7 @@ const Hero = () => {
                 <Linkedin className="w-5 h-5" />
               </a>
               <a 
-                href="mailto:alex@example.com"
+                href="mailto:DarrenFlores275@hotmail.com"
                 className="p-3 rounded-full bg-card/10 backdrop-blur-sm border border-border/20 text-secondary-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300 hover:scale-110"
               >
                 <Mail className="w-5 h-5" />
@@ -65,24 +65,23 @@ const Hero = () => {
           <div className="lg:col-span-2 space-y-6">
             <div className="bg-card/10 backdrop-blur-md rounded-2xl p-8 border border-border/20 shadow-xl">
               <h2 className="text-2xl font-semibold text-secondary-foreground mb-4">
-                Crafting Digital Experiences
+                Building High-Performance Applications
               </h2>
               <p className="text-lg text-muted leading-relaxed mb-6">
-                I'm a passionate full-stack developer with 8+ years of experience building 
-                scalable web applications and leading development teams. I specialize in 
-                React, TypeScript, and Node.js, creating solutions that combine elegant 
-                design with robust functionality.
+                Senior Full Stack Developer with 10+ years of experience building high-performance 
+                web and mobile applications in healthcare, finance, travel, and restaurant industries. 
+                Experienced in frontend and backend development, AI integration, cloud architectures, 
+                and mobile solutions.
               </p>
               <p className="text-lg text-muted leading-relaxed mb-6">
-                My journey in software development has taken me through startups and 
-                enterprise environments, where I've had the privilege of working on 
-                projects that impact millions of users. I believe in writing clean, 
-                maintainable code and staying current with emerging technologies.
+                Proven ability to lead teams, optimize complex systems, and deliver measurable impact 
+                on performance and scalability. I specialize in React.js, Next.js, Angular, .NET Core, 
+                Python, and cloud platforms like Azure and AWS.
               </p>
               <p className="text-lg text-muted leading-relaxed">
-                When I'm not coding, you'll find me contributing to open-source projects, 
-                mentoring aspiring developers, or exploring the latest in AI and machine 
-                learning. I'm always open to discussing new opportunities and collaborations.
+                Based in Los Angeles County, California, I'm passionate about mentoring engineers, 
+                building AI-powered solutions, and creating seamless user experiences that serve 
+                thousands of users.
               </p>
             </div>
 

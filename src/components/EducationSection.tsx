@@ -14,59 +14,17 @@ interface Education {
 const educationData: Education[] = [
   {
     id: 1,
-    institution: "Stanford University",
-    degree: "Master of Science",
+    institution: "University of California, Santa Cruz",
+    degree: "Bachelor of Science (B.S.)",
     field: "Computer Science",
-    duration: "2014 - 2016",
-    description: "Specialized in artificial intelligence and machine learning, with focus on neural networks and natural language processing.",
+    duration: "08/2011 - 01/2015",
+    description: "Comprehensive computer science education with focus on software engineering, algorithms, and systems design in Santa Cruz, CA.",
     achievements: [
-      "Graduated with Distinction (GPA: 3.9/4.0)",
-      "Published research paper on ML optimization",
-      "Teaching Assistant for Algorithms course"
+      "Strong foundation in data structures and algorithms",
+      "Practical experience in software development",
+      "Prepared for career in full-stack development"
     ],
     type: "degree"
-  },
-  {
-    id: 2,
-    institution: "University of California, Berkeley",
-    degree: "Bachelor of Science",
-    field: "Computer Science & Mathematics",
-    duration: "2010 - 2014",
-    description: "Double major combining strong theoretical foundations in computer science with advanced mathematics.",
-    achievements: [
-      "Dean's List all semesters",
-      "Led student hackathon organization",
-      "Undergraduate research in cryptography"
-    ],
-    type: "degree"
-  },
-  {
-    id: 3,
-    institution: "AWS",
-    degree: "Solutions Architect Professional",
-    field: "Cloud Architecture",
-    duration: "2023",
-    description: "Advanced certification demonstrating expertise in designing distributed systems on AWS.",
-    achievements: [
-      "Scored in top 5% of candidates",
-      "Validated expertise in AWS services",
-      "Specialization in serverless architectures"
-    ],
-    type: "certification"
-  },
-  {
-    id: 4,
-    institution: "Google",
-    degree: "Professional Cloud Developer",
-    field: "Cloud Development",
-    duration: "2022",
-    description: "Comprehensive certification covering Google Cloud Platform development and deployment.",
-    achievements: [
-      "Full-stack cloud development expertise",
-      "Container orchestration with GKE",
-      "CI/CD pipeline implementation"
-    ],
-    type: "certification"
   }
 ];
 
