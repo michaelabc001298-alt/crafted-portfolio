@@ -36,14 +36,15 @@ const ProjectDetail = () => {
     <div className="min-h-screen bg-background">
       <Navigation />
       
-      {/* Hero Image - Full width and clear display */}
+      {/* Hero Image - Full width with animation */}
       <div className="relative pt-16">
-        <div className="w-full bg-secondary">
+        <div className="w-full bg-gradient-to-b from-secondary to-background">
           <div className="container mx-auto px-6 py-8">
             <img 
               src={project.image} 
               alt={project.title}
-              className="w-full max-h-[600px] object-contain rounded-xl shadow-2xl"
+              className="w-full max-h-[600px] object-contain rounded-xl shadow-2xl animate-fade-in"
+              style={{ animationDuration: '0.6s' }}
             />
           </div>
         </div>
