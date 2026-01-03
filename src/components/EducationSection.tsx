@@ -41,7 +41,7 @@ const EducationSection = () => {
         {/* Education Layout - Similar to Experience */}
         <div className="space-y-12 max-w-6xl mx-auto">
           {educationData.map((edu, index) => {
-            const isLeft = index % 2 === 0;
+            const isLeft = index % 2 === 1;
             
             return (
               <div 
