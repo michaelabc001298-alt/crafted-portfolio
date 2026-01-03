@@ -12,50 +12,41 @@ interface Experience {
 const experiences: Experience[] = [
   {
     id: 1,
-    company: "TechCorp Global",
-    role: "Senior Full-Stack Developer",
-    duration: "2022 - Present",
-    description: "Leading development of enterprise-scale applications serving millions of users worldwide.",
+    company: "Nominal",
+    role: "Senior Full Stack Engineer",
+    duration: "05/2022 - Present",
+    description: "Engineering AI-powered dashboards for healthcare and finance applications in Los Angeles, CA.",
     achievements: [
-      "Architected microservices infrastructure reducing latency by 60%",
-      "Mentored team of 8 junior developers",
-      "Implemented CI/CD pipelines improving deployment frequency by 400%"
+      "Enhanced predictive insights for 10,000+ users, improving operational efficiency by ~25%",
+      "Implemented full-stack solutions using React.js, Next.js, Angular, .NET C#, Python, Django, Node.js, and Laravel",
+      "Optimized application performance reducing page load times by 25-30%",
+      "Automated CI/CD pipelines using Azure DevOps and Docker, cutting release cycles in half"
     ]
   },
   {
     id: 2,
-    company: "StartupVenture Inc",
-    role: "Full-Stack Developer",
-    duration: "2019 - 2022",
-    description: "Core member of founding engineering team building fintech solutions from ground up.",
+    company: "Truckstop.com",
+    role: "Senior Backend Engineer",
+    duration: "01/2018 - 03/2022",
+    description: "Developed and optimized backend APIs and microservices supporting 50,000+ daily active users in Los Angeles, CA.",
     achievements: [
-      "Built real-time trading platform handling $50M+ daily volume",
-      "Designed database schema supporting 10M+ transactions",
-      "Led integration with major banking APIs"
+      "Engineered complex financial and logistics systems for healthcare and finance domains",
+      "Built Android backend integrations supporting ~10,000 concurrent mobile users",
+      "Optimized database performance reducing response times by ~20-25%",
+      "Implemented Azure cloud solutions cutting infrastructure costs by $5K/month"
     ]
   },
   {
     id: 3,
-    company: "Digital Agency Pro",
-    role: "Frontend Developer",
-    duration: "2017 - 2019",
-    description: "Developed responsive web applications for diverse client portfolio across industries.",
+    company: "Newport Beach",
+    role: "Full Stack Engineer",
+    duration: "03/2015 - 12/2017",
+    description: "Developed core trading platform features utilizing .NET Core backend services with React and TypeScript frontend frameworks in Los Angeles, CA.",
     achievements: [
-      "Delivered 20+ client projects on time and budget",
-      "Introduced React adoption, improving development speed by 50%",
-      "Created reusable component library used across all projects"
-    ]
-  },
-  {
-    id: 4,
-    company: "CodeStart Labs",
-    role: "Junior Developer",
-    duration: "2016 - 2017",
-    description: "Started career building web applications and learning industry best practices.",
-    achievements: [
-      "Contributed to 5 successful product launches",
-      "Mastered JavaScript, React, and Node.js ecosystem",
-      "Received 'Rising Star' recognition for exceptional performance"
+      "Delivered real-time trade execution and portfolio management tools",
+      "Designed RESTful APIs and WebSocket-based real-time data streams",
+      "Managed SQL Server databases handling high-volume financial transactions",
+      "Integrated Stripe payment APIs and CRM tools for subscription management"
     ]
   }
 ];
