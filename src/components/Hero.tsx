@@ -64,9 +64,6 @@ const Hero = () => {
           {/* Introduction Section - 2/3 */}
           <div className="lg:col-span-2 space-y-6">
             <div className="bg-card/10 backdrop-blur-md rounded-2xl p-8 border border-border/20 shadow-xl">
-              <h2 className="text-2xl font-semibold text-secondary-foreground mb-4">
-                Building High-Performance Applications
-              </h2>
               <p className="text-lg text-muted leading-relaxed mb-6">
                 Senior Full Stack Developer with 10+ years of experience building high-performance 
                 web and mobile applications in healthcare, finance, travel, and restaurant industries. 
@@ -94,13 +91,19 @@ const Hero = () => {
                 View My Work
                 <ChevronDown className="ml-2 w-4 h-4 group-hover:translate-y-1 transition-transform" />
               </Button>
-              <Button 
-                variant="outline" 
-                size="lg"
-                className="bg-card/10 backdrop-blur-sm border-border/20 text-secondary-foreground hover:bg-card/20"
+              <a 
+                href="/Darren-Flores-Resume.pdf"
+                target="_blank"
+                rel="noopener noreferrer"
               >
-                Download Resume
-              </Button>
+                <Button 
+                  variant="outline" 
+                  size="lg"
+                  className="bg-card/10 backdrop-blur-sm border-border/20 text-secondary-foreground hover:bg-card/20"
+                >
+                  Download Resume
+                </Button>
+              </a>
             </div>
           </div>
         </div>

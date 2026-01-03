@@ -15,39 +15,24 @@ const experiences: Experience[] = [
     company: "Nominal",
     role: "Senior Full Stack Engineer",
     duration: "05/2022 - Present",
-    description: "Engineering AI-powered dashboards for healthcare and finance applications in Los Angeles, CA.",
-    achievements: [
-      "Enhanced predictive insights for 10,000+ users, improving operational efficiency by ~25%",
-      "Implemented full-stack solutions using React.js, Next.js, Angular, .NET C#, Python, Django, Node.js, and Laravel",
-      "Optimized application performance reducing page load times by 25-30%",
-      "Automated CI/CD pipelines using Azure DevOps and Docker, cutting release cycles in half"
-    ]
+    description: "Building AI-powered healthcare and finance dashboards that serve 10,000+ users. Driving 25% efficiency gains through full-stack solutions with React, .NET, and Python.",
+    achievements: []
   },
   {
     id: 2,
     company: "Truckstop.com",
     role: "Senior Backend Engineer",
     duration: "01/2018 - 03/2022",
-    description: "Developed and optimized backend APIs and microservices supporting 50,000+ daily active users in Los Angeles, CA.",
-    achievements: [
-      "Engineered complex financial and logistics systems for healthcare and finance domains",
-      "Built Android backend integrations supporting ~10,000 concurrent mobile users",
-      "Optimized database performance reducing response times by ~20-25%",
-      "Implemented Azure cloud solutions cutting infrastructure costs by $5K/month"
-    ]
+    description: "Architected scalable APIs and microservices supporting 50,000+ daily users. Reduced infrastructure costs by $5K/month through Azure cloud optimization.",
+    achievements: []
   },
   {
     id: 3,
     company: "Newport Beach",
     role: "Full Stack Engineer",
     duration: "03/2015 - 12/2017",
-    description: "Developed core trading platform features utilizing .NET Core backend services with React and TypeScript frontend frameworks in Los Angeles, CA.",
-    achievements: [
-      "Delivered real-time trade execution and portfolio management tools",
-      "Designed RESTful APIs and WebSocket-based real-time data streams",
-      "Managed SQL Server databases handling high-volume financial transactions",
-      "Integrated Stripe payment APIs and CRM tools for subscription management"
-    ]
+    description: "Developed real-time trading platform features with .NET Core and React. Built WebSocket-based data streams handling high-volume financial transactions.",
+    achievements: []
   }
 ];
 
@@ -144,19 +129,7 @@ const ExperienceCard = ({ experience, alignment }: ExperienceCardProps) => {
         <span className="font-mono text-sm">{experience.duration}</span>
       </div>
 
-      <p className="text-muted mb-4">{experience.description}</p>
-
-      <ul className={`space-y-2 ${alignment === "right" ? "lg:text-right" : ""}`}>
-        {experience.achievements.map((achievement, i) => (
-          <li 
-            key={i}
-            className={`flex items-start gap-2 text-sm text-secondary-foreground ${alignment === "right" ? "lg:flex-row-reverse" : ""}`}
-          >
-            <span className="text-primary mt-1.5 shrink-0">•</span>
-            <span>{achievement}</span>
-          </li>
-        ))}
-      </ul>
+      <p className="text-muted leading-relaxed">{experience.description}</p>
     </div>
   );
 };
