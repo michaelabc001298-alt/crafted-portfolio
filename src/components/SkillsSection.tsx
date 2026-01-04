@@ -1,4 +1,6 @@
-import { Code2, Database, Layout, Server, GitBranch, Cloud, Smartphone, Shield, Brain, Wrench } from "lucide-react";
+import { Code2, Database, Layout, Server, Cloud, Smartphone, Brain, Wrench } from "lucide-react";
+import { useEffect, useState, useRef } from "react";
+import AnimatedCounter from "./AnimatedCounter";
 
 interface Skill {
   name: string;
@@ -110,9 +112,40 @@ const skillCategories: SkillCategory[] = [
   },
 ];
 
+const AnimatedSkillBar = ({ level }: { level: number }) => {
+  const [width, setWidth] = useState(0);
+  const ref = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) {
+          setTimeout(() => setWidth(level), 100);
+        }
+      },
+      { threshold: 0.3 }
+    );
+
+    if (ref.current) {
+      observer.observe(ref.current);
+    }
+
+    return () => observer.disconnect();
+  }, [level]);
+
+  return (
+    <div ref={ref} className="h-1.5 bg-muted/30 rounded-full overflow-hidden">
+      <div 
+        className="h-full bg-gradient-to-r from-primary to-chart-2 rounded-full transition-all duration-1000 ease-out"
+        style={{ width: `${width}%` }}
+      />
+    </div>
+  );
+};
+
 const SkillsSection = () => {
   return (
-    <section className="py-24 bg-background">
+    <section className="py-24 relative">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
@@ -134,7 +167,7 @@ const SkillsSection = () => {
           {skillCategories.map((category) => (
             <div 
               key={category.name}
-              className="bg-card rounded-xl p-5 border border-border shadow-lg hover:shadow-xl transition-all duration-300"
+              className="bg-card/80 backdrop-blur-sm rounded-xl p-5 border border-border shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1"
             >
               {/* Category Header */}
               <div className="flex items-center gap-3 mb-5">
@@ -154,16 +187,11 @@ const SkillsSection = () => {
                       <span className="text-xs font-medium text-foreground">
                         {skill.name}
                       </span>
-                      <span className="text-xs font-mono text-muted-foreground">
-                        {skill.level}%
+                      <span className="text-xs text-muted-foreground">
+                        <AnimatedCounter target={skill.level} duration={1500} />
                       </span>
                     </div>
-                    <div className="h-1.5 bg-muted/30 rounded-full overflow-hidden">
-                      <div 
-                        className="h-full bg-gradient-to-r from-primary to-chart-2 rounded-full transition-all duration-1000"
-                        style={{ width: `${skill.level}%` }}
-                      />
-                    </div>
+                    <AnimatedSkillBar level={skill.level} />
                   </div>
                 ))}
               </div>
