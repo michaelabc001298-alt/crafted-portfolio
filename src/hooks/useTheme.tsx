@@ -14,9 +14,10 @@ export const ThemeProvider = ({ children }: { children: ReactNode }) => {
     if (typeof window !== "undefined") {
       const saved = localStorage.getItem("theme") as Theme;
       if (saved) return saved;
-      return window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      // Default to dark mode
+      return "dark";
     }
-    return "light";
+    return "dark";
   });
 
   useEffect(() => {

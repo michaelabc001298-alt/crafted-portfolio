@@ -24,12 +24,12 @@ const Hero = () => {
               <p className="text-primary font-mono text-sm tracking-wider uppercase animate-fade-in">
                 Hello, I'm
               </p>
-              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-secondary-foreground leading-tight">
+              <h1 className="text-5xl lg:text-6xl xl:text-7xl font-bold text-foreground leading-tight">
                 Darren
                 <span className="block text-primary">Flores</span>
               </h1>
               <div className="h-1 w-24 bg-gradient-to-r from-primary to-chart-2 mx-auto lg:mx-0 rounded-full" />
-              <p className="text-xl text-muted font-medium">
+              <p className="text-xl text-muted-foreground font-medium">
                 Senior Full Stack Engineer
               </p>
             </div>
@@ -63,19 +63,19 @@ const Hero = () => {
 
           {/* Introduction Section - 2/3 */}
           <div className="lg:col-span-2 space-y-6">
-            <div className="bg-card/10 backdrop-blur-md rounded-2xl p-8 border border-border/20 shadow-xl">
-              <p className="text-lg text-muted leading-relaxed mb-6">
+            <div className="bg-card/80 backdrop-blur-md rounded-2xl p-8 border border-border shadow-xl">
+              <p className="text-lg text-foreground leading-relaxed mb-6">
                 Senior Full Stack Developer with 10+ years of experience building high-performance 
                 web and mobile applications in healthcare, finance, travel, and restaurant industries. 
                 Experienced in frontend and backend development, AI integration, cloud architectures, 
                 and mobile solutions.
               </p>
-              <p className="text-lg text-muted leading-relaxed mb-6">
+              <p className="text-lg text-foreground leading-relaxed mb-6">
                 Proven ability to lead teams, optimize complex systems, and deliver measurable impact 
                 on performance and scalability. I specialize in React.js, Next.js, Angular, .NET Core, 
                 Python, and cloud platforms like Azure and AWS.
               </p>
-              <p className="text-lg text-muted leading-relaxed">
+              <p className="text-lg text-foreground leading-relaxed">
                 Based in Los Angeles County, California, I'm passionate about mentoring engineers, 
                 building AI-powered solutions, and creating seamless user experiences that serve 
                 thousands of users.
