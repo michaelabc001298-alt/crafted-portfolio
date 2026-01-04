@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
+import ThemeToggle from "./ThemeToggle";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -40,11 +41,11 @@ const Navigation = () => {
             to="/" 
             className="text-2xl font-bold text-foreground hover:text-primary transition-colors"
           >
-            <span className="text-primary">A</span>C
+            <span className="text-primary">D</span>F
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center gap-8">
+          <div className="hidden md:flex items-center gap-6">
             <button 
               onClick={() => scrollToSection("projects")}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
@@ -58,37 +59,41 @@ const Navigation = () => {
               Experience
             </button>
             <button 
+              onClick={() => scrollToSection("education")}
+              className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+            >
+              Education
+            </button>
+            <button 
               onClick={() => scrollToSection("skills")}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
               Skills
             </button>
             <button 
-              onClick={() => scrollToSection("education")}
+              onClick={() => scrollToSection("contact")}
               className="text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
             >
-              Education
-            </button>
-            <a 
-              href="mailto:alex@example.com"
-              className="px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium hover:bg-primary/90 transition-colors"
-            >
               Contact
-            </a>
+            </button>
+            <ThemeToggle />
           </div>
 
           {/* Mobile Menu Button */}
-          <button 
-            onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-            className="md:hidden p-2 text-foreground"
-          >
-            {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </button>
+          <div className="flex items-center gap-2 md:hidden">
+            <ThemeToggle />
+            <button 
+              onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="p-2 text-foreground"
+            >
+              {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+            </button>
+          </div>
         </div>
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="md:hidden py-4 border-t border-border">
+          <div className="md:hidden py-4 border-t border-border bg-card/95 backdrop-blur-md">
             <div className="flex flex-col gap-4">
               <button 
                 onClick={() => scrollToSection("projects")}
@@ -103,23 +108,23 @@ const Navigation = () => {
                 Experience
               </button>
               <button 
+                onClick={() => scrollToSection("education")}
+                className="text-left text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
+              >
+                Education
+              </button>
+              <button 
                 onClick={() => scrollToSection("skills")}
                 className="text-left text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
                 Skills
               </button>
               <button 
-                onClick={() => scrollToSection("education")}
+                onClick={() => scrollToSection("contact")}
                 className="text-left text-sm font-medium text-muted-foreground hover:text-primary transition-colors"
               >
-                Education
-              </button>
-              <a 
-                href="mailto:alex@example.com"
-                className="inline-block px-4 py-2 bg-primary text-primary-foreground rounded-lg font-medium text-center"
-              >
                 Contact
-              </a>
+              </button>
             </div>
           </div>
         )}

@@ -14,8 +14,8 @@ const ProjectDetail = () => {
 
   useEffect(() => {
     setImageLoaded(false);
-    const timer = setTimeout(() => setImageLoaded(true), 100);
-    return () => clearTimeout(timer);
+    // Scroll to top when project changes
+    window.scrollTo(0, 0);
   }, [id]);
 
   if (!project) {
@@ -40,22 +40,63 @@ const ProjectDetail = () => {
     p.id !== project.id && p.id !== prevProject.id && p.id !== nextProject.id
   ).slice(0, 4);
 
+  // Split text into paragraphs
+  const formatDescription = (text: string) => {
+    const sentences = text.split('. ');
+    const paragraphs: string[] = [];
+    let currentParagraph = '';
+    
+    sentences.forEach((sentence, index) => {
+      currentParagraph += sentence + (index < sentences.length - 1 ? '. ' : '');
+      if ((index + 1) % 2 === 0 || index === sentences.length - 1) {
+        paragraphs.push(currentParagraph.trim());
+        currentParagraph = '';
+      }
+    });
+    
+    return paragraphs.filter(p => p.length > 0);
+  };
+
   return (
-    <div className="min-h-screen bg-gradient-to-b from-secondary via-background to-secondary/30">
+    <div className="min-h-screen relative">
       <Navigation />
       
-      {/* Hero Image - Full width with animation */}
+      {/* Hero Image Section - Full width with modern background */}
       <div className="relative pt-16">
-        <div className="w-full">
-          <div className="container mx-auto px-6 py-8">
-            <img 
-              src={project.image} 
-              alt={project.title}
-              onLoad={() => setImageLoaded(true)}
-              className={`w-full max-h-[600px] object-contain rounded-xl shadow-2xl transition-all duration-700 ${
-                imageLoaded ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
-              }`}
-            />
+        <div className="relative w-full min-h-[70vh] flex items-center justify-center overflow-hidden">
+          {/* Modern gradient background with geometric patterns */}
+          <div className="absolute inset-0 bg-gradient-to-br from-primary/10 via-background to-chart-2/10" />
+          
+          {/* Decorative elements */}
+          <div className="absolute inset-0 overflow-hidden">
+            <div className="absolute top-20 left-10 w-72 h-72 bg-primary/5 rounded-full blur-3xl animate-pulse" />
+            <div className="absolute bottom-20 right-10 w-96 h-96 bg-chart-2/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] border border-primary/10 rounded-full" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] border border-primary/5 rounded-full" />
+          </div>
+          
+          {/* Image container with modern frame */}
+          <div className="relative z-10 container mx-auto px-6 py-12">
+            <div className="relative max-w-5xl mx-auto">
+              {/* Glow effect behind image */}
+              <div className="absolute inset-0 bg-gradient-to-r from-primary/20 to-chart-2/20 blur-2xl scale-105 rounded-3xl" />
+              
+              {/* Image frame */}
+              <div className="relative bg-card/50 backdrop-blur-sm p-3 rounded-2xl border border-border/50 shadow-2xl">
+                <div className="overflow-hidden rounded-xl bg-muted/30">
+                  <img 
+                    src={project.image} 
+                    alt={project.title}
+                    onLoad={() => setImageLoaded(true)}
+                    className={`w-full max-h-[550px] object-contain transition-all duration-700 ${
+                      imageLoaded 
+                        ? 'opacity-100 scale-100' 
+                        : 'opacity-0 scale-95'
+                    }`}
+                  />
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
@@ -71,7 +112,7 @@ const ProjectDetail = () => {
           <span>Back to Projects</span>
         </Link>
 
-        <div className="bg-card rounded-2xl p-8 lg:p-12 border border-border shadow-xl">
+        <div className="bg-card/80 backdrop-blur-sm rounded-2xl p-8 lg:p-12 border border-border shadow-xl">
           {/* Header */}
           <div className="mb-8">
             <h1 className="text-4xl lg:text-5xl font-bold text-card-foreground mb-4">
@@ -108,43 +149,57 @@ const ProjectDetail = () => {
             </div>
           </div>
 
-          {/* Description */}
+          {/* Description - Multi-line */}
           <div className="mb-8">
             <h2 className="text-lg font-semibold text-card-foreground mb-3">
               Project Overview
             </h2>
-            <p className="text-muted-foreground leading-relaxed text-lg">
-              {project.fullDescription}
-            </p>
+            <div className="space-y-4">
+              {formatDescription(project.fullDescription).map((paragraph, index) => (
+                <p key={index} className="text-muted-foreground leading-relaxed text-lg">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
 
-          {/* Challenges */}
+          {/* Challenges - Multi-line */}
           <div className="mb-8">
             <h2 className="text-lg font-semibold text-card-foreground mb-3">
               Key Challenges
             </h2>
-            <p className="text-muted-foreground leading-relaxed">
-              {project.challenges}
-            </p>
+            <div className="space-y-4">
+              {formatDescription(project.challenges).map((paragraph, index) => (
+                <p key={index} className="text-muted-foreground leading-relaxed">
+                  {paragraph}
+                </p>
+              ))}
+            </div>
           </div>
 
-          {/* Outcome */}
+          {/* Outcome - Multi-line */}
           <div className="mb-8">
             <h2 className="text-lg font-semibold text-card-foreground mb-3">
               Results & Impact
             </h2>
             <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
-              <p className="text-foreground leading-relaxed">
-                {project.outcome}
-              </p>
+              <div className="space-y-4">
+                {formatDescription(project.outcome).map((paragraph, index) => (
+                  <p key={index} className="text-foreground leading-relaxed">
+                    {paragraph}
+                  </p>
+                ))}
+              </div>
             </div>
           </div>
 
           {/* Actions */}
           <div className="flex flex-wrap gap-4">
-            <Button className="gap-2">
-              <ExternalLink className="w-4 h-4" />
-              View Live Demo
+            <Button asChild className="gap-2">
+              <a href="#" target="_blank" rel="noopener noreferrer">
+                <ExternalLink className="w-4 h-4" />
+                View Live Demo
+              </a>
             </Button>
           </div>
         </div>
@@ -153,7 +208,7 @@ const ProjectDetail = () => {
         <div className="mt-12 grid md:grid-cols-2 gap-6">
           <Link 
             to={`/project/${prevProject.id}`}
-            className="group flex items-center gap-4 p-6 bg-card rounded-xl border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+            className="group flex items-center gap-4 p-6 bg-card/80 backdrop-blur-sm rounded-xl border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300"
           >
             <ArrowLeft className="w-6 h-6 text-primary group-hover:-translate-x-1 transition-transform" />
             <div className="flex-1">
@@ -173,7 +228,7 @@ const ProjectDetail = () => {
 
           <Link 
             to={`/project/${nextProject.id}`}
-            className="group flex items-center gap-4 p-6 bg-card rounded-xl border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300"
+            className="group flex items-center gap-4 p-6 bg-card/80 backdrop-blur-sm rounded-xl border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300"
           >
             <div className="w-16 h-16 rounded-lg overflow-hidden shrink-0">
               <img 
@@ -204,7 +259,7 @@ const ProjectDetail = () => {
                 to={`/project/${p.id}`}
                 className="group block"
               >
-                <div className="bg-card rounded-xl overflow-hidden border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
+                <div className="bg-card/80 backdrop-blur-sm rounded-xl overflow-hidden border border-border hover:border-primary/50 hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
                   <div className="aspect-video overflow-hidden">
                     <img 
                       src={p.image} 
