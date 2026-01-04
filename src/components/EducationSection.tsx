@@ -22,17 +22,17 @@ const educationData: Education[] = [
 
 const EducationSection = () => {
   return (
-    <section className="py-24 bg-secondary">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
           <p className="text-primary font-mono text-sm tracking-wider uppercase mb-2">
             Academic Background
           </p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-secondary-foreground mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Education
           </h2>
-          <p className="text-lg text-muted max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             My academic journey that forms the foundation of my technical expertise.
           </p>
           <div className="h-1 w-24 bg-gradient-to-r from-primary to-chart-2 mx-auto mt-6 rounded-full" />
@@ -91,7 +91,7 @@ interface EducationCardProps {
 const EducationCard = ({ education, alignment }: EducationCardProps) => {
   return (
     <div 
-      className={`bg-card/10 backdrop-blur-sm rounded-xl p-6 border border-border/20 shadow-lg hover:shadow-xl hover:bg-card/20 transition-all duration-300 hover:-translate-y-1 ${
+      className={`bg-card/80 backdrop-blur-sm rounded-xl p-6 border border-border shadow-lg hover:shadow-xl hover:bg-card transition-all duration-300 hover:-translate-y-1 ${
         alignment === "right" ? "lg:text-right" : "lg:text-left"
       }`}
     >
@@ -100,20 +100,20 @@ const EducationCard = ({ education, alignment }: EducationCardProps) => {
           <GraduationCap className="w-5 h-5 text-primary" />
         </div>
         <div>
-          <h3 className="text-xl font-semibold text-secondary-foreground">
+          <h3 className="text-xl font-semibold text-foreground">
             {education.degree}
           </h3>
           <p className="text-primary font-medium">{education.field}</p>
-          <p className="text-muted">{education.institution}</p>
+          <p className="text-muted-foreground">{education.institution}</p>
         </div>
       </div>
 
-      <div className={`flex items-center gap-2 mb-4 text-muted ${alignment === "right" ? "lg:justify-end" : ""}`}>
+      <div className={`flex items-center gap-2 mb-4 text-muted-foreground ${alignment === "right" ? "lg:justify-end" : ""}`}>
         <Calendar className="w-4 h-4" />
         <span className="font-mono text-sm">{education.duration}</span>
       </div>
 
-      <p className="text-muted leading-relaxed">{education.description}</p>
+      <p className="text-foreground leading-relaxed">{education.description}</p>
     </div>
   );
 };

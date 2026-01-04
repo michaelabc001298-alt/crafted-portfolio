@@ -2,11 +2,15 @@ import { useState, useEffect } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 import ThemeToggle from "./ThemeToggle";
+import { useTheme } from "@/hooks/useTheme";
 
 const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [isHovered, setIsHovered] = useState(false);
   const location = useLocation();
+  const { theme } = useTheme();
+  const isProjectPage = location.pathname.startsWith("/project/");
 
   useEffect(() => {
     const handleScroll = () => {
@@ -26,13 +30,27 @@ const Navigation = () => {
     setIsMobileMenuOpen(false);
   };
 
+  // Different header styles for project pages
+  const getHeaderStyles = () => {
+    if (isProjectPage) {
+      if (theme === "dark") {
+        return "bg-card/40 backdrop-blur-md border-b border-border/30";
+      } else {
+        return "bg-card/80 backdrop-blur-md shadow-lg border-b border-border";
+      }
+    }
+    return isScrolled 
+      ? "bg-card/95 backdrop-blur-md shadow-lg border-b border-border" 
+      : "bg-transparent";
+  };
+
   return (
     <nav 
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        isScrolled 
-          ? "bg-card/95 backdrop-blur-md shadow-lg border-b border-border" 
-          : "bg-transparent"
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${getHeaderStyles()} ${
+        isHovered ? "scale-[1.01] shadow-xl" : ""
       }`}
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
     >
       <div className="container mx-auto px-6">
         <div className="flex items-center justify-between h-16">

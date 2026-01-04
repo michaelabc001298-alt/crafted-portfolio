@@ -38,17 +38,17 @@ const experiences: Experience[] = [
 
 const ExperienceSection = () => {
   return (
-    <section className="py-24 bg-secondary">
+    <section className="py-24 bg-background">
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <div className="text-center mb-16">
           <p className="text-primary font-mono text-sm tracking-wider uppercase mb-2">
             Career Journey
           </p>
-          <h2 className="text-4xl lg:text-5xl font-bold text-secondary-foreground mb-4">
+          <h2 className="text-4xl lg:text-5xl font-bold text-foreground mb-4">
             Work Experience
           </h2>
-          <p className="text-lg text-muted max-w-2xl mx-auto">
+          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
             My professional path through the tech industry, building products 
             that make a difference.
           </p>
@@ -108,7 +108,7 @@ interface ExperienceCardProps {
 const ExperienceCard = ({ experience, alignment }: ExperienceCardProps) => {
   return (
     <div 
-      className={`bg-card/10 backdrop-blur-sm rounded-xl p-6 border border-border/20 shadow-lg hover:shadow-xl hover:bg-card/20 transition-all duration-300 hover:-translate-y-1 ${
+      className={`bg-card/80 backdrop-blur-sm rounded-xl p-6 border border-border shadow-lg hover:shadow-xl hover:bg-card transition-all duration-300 hover:-translate-y-1 ${
         alignment === "right" ? "lg:text-right" : "lg:text-left"
       }`}
     >
@@ -117,19 +117,19 @@ const ExperienceCard = ({ experience, alignment }: ExperienceCardProps) => {
           <Briefcase className="w-5 h-5 text-primary" />
         </div>
         <div>
-          <h3 className="text-xl font-semibold text-secondary-foreground">
+          <h3 className="text-xl font-semibold text-foreground">
             {experience.role}
           </h3>
           <p className="text-primary font-medium">{experience.company}</p>
         </div>
       </div>
 
-      <div className={`flex items-center gap-2 mb-4 text-muted ${alignment === "right" ? "lg:justify-end" : ""}`}>
+      <div className={`flex items-center gap-2 mb-4 text-muted-foreground ${alignment === "right" ? "lg:justify-end" : ""}`}>
         <Calendar className="w-4 h-4" />
         <span className="font-mono text-sm">{experience.duration}</span>
       </div>
 
-      <p className="text-muted leading-relaxed">{experience.description}</p>
+      <p className="text-foreground leading-relaxed">{experience.description}</p>
     </div>
   );
 };
