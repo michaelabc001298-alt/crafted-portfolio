@@ -38,8 +38,33 @@ const experiences: Experience[] = [
 
 const ExperienceSection = () => {
   return (
-    <section className="py-24 bg-background">
-      <div className="container mx-auto px-6">
+    <section className="py-24 bg-background relative overflow-hidden">
+      {/* 3D Background Animation */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* Animated gradient orbs */}
+        <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-primary/10 rounded-full blur-3xl animate-pulse" />
+        <div className="absolute bottom-1/4 right-1/4 w-80 h-80 bg-chart-2/10 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '1s' }} />
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-chart-3/5 rounded-full blur-3xl animate-pulse" style={{ animationDelay: '2s' }} />
+        
+        {/* Floating geometric shapes */}
+        <div className="absolute top-20 right-20 w-32 h-32 border border-primary/20 rounded-xl rotate-45 animate-spin" style={{ animationDuration: '20s' }} />
+        <div className="absolute bottom-32 left-16 w-24 h-24 border border-chart-2/20 rounded-full animate-bounce" style={{ animationDuration: '4s' }} />
+        <div className="absolute top-1/3 right-1/3 w-16 h-16 bg-primary/5 rounded-lg rotate-12 animate-pulse" />
+        
+        {/* Grid pattern overlay */}
+        <div className="absolute inset-0 opacity-5" style={{
+          backgroundImage: `linear-gradient(to right, hsl(var(--primary)) 1px, transparent 1px), 
+                           linear-gradient(to bottom, hsl(var(--primary)) 1px, transparent 1px)`,
+          backgroundSize: '60px 60px'
+        }} />
+        
+        {/* Floating particles */}
+        <div className="absolute top-1/4 left-1/3 w-2 h-2 bg-primary/40 rounded-full animate-ping" style={{ animationDuration: '3s' }} />
+        <div className="absolute top-2/3 right-1/4 w-3 h-3 bg-chart-2/40 rounded-full animate-ping" style={{ animationDuration: '4s', animationDelay: '1s' }} />
+        <div className="absolute bottom-1/3 left-1/2 w-2 h-2 bg-chart-3/40 rounded-full animate-ping" style={{ animationDuration: '5s', animationDelay: '2s' }} />
+      </div>
+
+      <div className="container mx-auto px-6 relative z-10">
         {/* Section Header */}
         <div className="text-center mb-16">
           <p className="text-primary font-mono text-sm tracking-wider uppercase mb-2">

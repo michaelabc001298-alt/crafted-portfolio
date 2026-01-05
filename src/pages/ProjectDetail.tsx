@@ -40,21 +40,20 @@ const ProjectDetail = () => {
     p.id !== project.id && p.id !== prevProject.id && p.id !== nextProject.id
   ).slice(0, 4);
 
-  // Split text into paragraphs
+  // Format text with proper line breaks - splits by newlines and "- " for bullet points
   const formatDescription = (text: string) => {
-    const sentences = text.split('. ');
-    const paragraphs: string[] = [];
-    let currentParagraph = '';
-    
-    sentences.forEach((sentence, index) => {
-      currentParagraph += sentence + (index < sentences.length - 1 ? '. ' : '');
-      if ((index + 1) % 2 === 0 || index === sentences.length - 1) {
-        paragraphs.push(currentParagraph.trim());
-        currentParagraph = '';
-      }
+    // First split by double newlines for paragraphs
+    const lines = text.split(/\n+/).filter(line => line.trim().length > 0);
+    return lines;
+  };
+
+  // Format challenges/outcomes with bullet point support
+  const formatWithBullets = (text: string) => {
+    const lines = text.split(/\n+/).filter(line => line.trim().length > 0);
+    return lines.map(line => {
+      const isBullet = line.trim().startsWith('-') || line.trim().startsWith('•');
+      return { text: line.trim(), isBullet };
     });
-    
-    return paragraphs.filter(p => p.length > 0);
   };
 
   return (
@@ -163,30 +162,36 @@ const ProjectDetail = () => {
             </div>
           </div>
 
-          {/* Challenges - Multi-line */}
+          {/* Challenges - Multi-line with bullet support */}
           <div className="mb-8">
             <h2 className="text-lg font-semibold text-card-foreground mb-3">
               Key Challenges
             </h2>
-            <div className="space-y-4">
-              {formatDescription(project.challenges).map((paragraph, index) => (
-                <p key={index} className="text-muted-foreground leading-relaxed">
-                  {paragraph}
+            <div className="space-y-3">
+              {formatWithBullets(project.challenges).map((item, index) => (
+                <p 
+                  key={index} 
+                  className={`text-muted-foreground leading-relaxed ${item.isBullet ? 'pl-4' : ''}`}
+                >
+                  {item.text}
                 </p>
               ))}
             </div>
           </div>
 
-          {/* Outcome - Multi-line */}
+          {/* Outcome - Multi-line with bullet support */}
           <div className="mb-8">
             <h2 className="text-lg font-semibold text-card-foreground mb-3">
               Results & Impact
             </h2>
             <div className="p-4 bg-primary/5 rounded-lg border border-primary/20">
-              <div className="space-y-4">
-                {formatDescription(project.outcome).map((paragraph, index) => (
-                  <p key={index} className="text-foreground leading-relaxed">
-                    {paragraph}
+              <div className="space-y-3">
+                {formatWithBullets(project.outcome).map((item, index) => (
+                  <p 
+                    key={index} 
+                    className={`text-foreground leading-relaxed ${item.isBullet ? 'pl-4' : ''}`}
+                  >
+                    {item.text}
                   </p>
                 ))}
               </div>

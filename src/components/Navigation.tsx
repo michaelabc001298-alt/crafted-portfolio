@@ -30,13 +30,13 @@ const Navigation = () => {
     setIsMobileMenuOpen(false);
   };
 
-  // Different header styles for project pages
+  // Different header styles for project pages - lighter backgrounds for better visibility
   const getHeaderStyles = () => {
     if (isProjectPage) {
       if (theme === "dark") {
-        return "bg-card/40 backdrop-blur-md border-b border-border/30";
+        return "bg-primary/20 backdrop-blur-md border-b border-primary/30";
       } else {
-        return "bg-card/80 backdrop-blur-md shadow-lg border-b border-border";
+        return "bg-card backdrop-blur-md shadow-lg border-b border-border";
       }
     }
     return isScrolled 
