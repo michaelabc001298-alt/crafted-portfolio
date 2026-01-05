@@ -201,7 +201,7 @@ const ProjectDetail = () => {
           {/* Actions */}
           <div className="flex flex-wrap gap-4">
             <Button asChild className="gap-2">
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href={project.liveurl} target="_blank" rel="noopener noreferrer">
                 <ExternalLink className="w-4 h-4" />
                 View Live Demo
               </a>

@@ -20,6 +20,7 @@ export interface Project {
   duration: string;
   challenges: string;
   outcome: string;
+  liveurl: string;
 }
 
 export const projects: Project[] = [
@@ -58,7 +59,8 @@ export const projects: Project[] = [
 
       User Engagement: Interactive UI/UX elements improved time on site by 20%, enhancing user experience and brand perception.
     
-    `
+    `,
+    liveurl: "https://spaziointerni.com"
   },
   {
     id: "2",
@@ -82,7 +84,8 @@ User navigation efficiency increased by ~25%, reducing time to find products
 
 Bounce rate reduced by ~20% due to improved UI clarity and faster loading
 
-Delivered a scalable front-end architecture capable of supporting high-traffic campaigns`
+Delivered a scalable front-end architecture capable of supporting high-traffic campaigns`,
+    liveurl: "https://invictawatch.com"
   },
   {
     id: "3",
@@ -110,7 +113,8 @@ Member engagement improved by ~25% with intuitive navigation and digital tools
 
 Delivered a scalable, secure platform capable of supporting high traffic and future expansions
 
-Strengthened Aetna’s digital presence and enhanced self-service capabilities for users`,
+Strengthened Aetna's digital presence and enhanced self-service capabilities for users`,
+    liveurl: "https://aetna.com"
   },
   {
     id: "4",
@@ -123,7 +127,8 @@ Strengthened Aetna’s digital presence and enhanced self-service capabilities f
     role: "Full-Stack Developer",
     duration: "",
     challenges: "Managing rate limits across multiple social platforms and synchronizing content across different time zones.",
-    outcome: "Helped marketing teams reduce content scheduling time by 60% and improve engagement rates by 35%."
+    outcome: "Helped marketing teams reduce content scheduling time by 60% and improve engagement rates by 35%.",
+    liveurl: "https://dewitneumatica.com"
   },
   {
     id: "5",
@@ -135,7 +140,8 @@ Strengthened Aetna’s digital presence and enhanced self-service capabilities f
     role: "Lead Backend Developer",
     duration: "14 months",
     challenges: "Ensuring HIPAA compliance while maintaining system performance and implementing reliable video streaming across varying network conditions.",
-    outcome: "Enabled over 10,000 virtual consultations monthly, reducing patient wait times by 70%."
+    outcome: "Enabled over 10,000 virtual consultations monthly, reducing patient wait times by 70%.",
+    liveurl: "https://example.com/telemedicine"
   },
   {
     id: "6",
@@ -147,7 +153,8 @@ Strengthened Aetna’s digital presence and enhanced self-service capabilities f
     role: "Full-Stack Developer",
     duration: "9 months",
     challenges: "Implementing smooth 3D virtual tours and optimizing map performance with thousands of property markers.",
-    outcome: "Platform facilitated over $50M in property transactions within the first year of launch."
+    outcome: "Platform facilitated over $50M in property transactions within the first year of launch.",
+    liveurl: "https://example.com/realestate"
   },
   {
     id: "7",
@@ -159,7 +166,8 @@ Strengthened Aetna’s digital presence and enhanced self-service capabilities f
     role: "Senior Frontend Developer",
     duration: "7 months",
     challenges: "Building real-time collaborative features with conflict resolution and ensuring smooth drag-and-drop interactions.",
-    outcome: "Adopted by 200+ teams, improving project delivery time by an average of 30%."
+    outcome: "Adopted by 200+ teams, improving project delivery time by an average of 30%.",
+    liveurl: "https://example.com/projectmgmt"
   },
   {
     id: "8",
@@ -171,7 +179,8 @@ Strengthened Aetna’s digital presence and enhanced self-service capabilities f
     role: "Full-Stack Developer",
     duration: "11 months",
     challenges: "Handling high-frequency real-time data updates and ensuring trade execution reliability during market volatility.",
-    outcome: "Processed over $100M in trading volume with 99.9% uptime and sub-second trade execution."
+    outcome: "Processed over $100M in trading volume with 99.9% uptime and sub-second trade execution.",
+    liveurl: "https://example.com/cryptotrading"
   },
   {
     id: "9",
@@ -183,7 +192,8 @@ Strengthened Aetna’s digital presence and enhanced self-service capabilities f
     role: "Mobile Development Lead",
     duration: "10 months",
     challenges: "Optimizing delivery routes in real-time and maintaining order synchronization across multiple apps.",
-    outcome: "Scaled to serve 50,000+ daily orders with an average delivery time of under 30 minutes."
+    outcome: "Scaled to serve 50,000+ daily orders with an average delivery time of under 30 minutes.",
+    liveurl: "https://example.com/fooddelivery"
   },
   {
     id: "10",
@@ -195,6 +205,7 @@ Strengthened Aetna’s digital presence and enhanced self-service capabilities f
     role: "Full-Stack Developer",
     duration: "8 months",
     challenges: "Building an accessible platform that supports diverse content types and ensuring smooth video streaming for remote learners.",
-    outcome: "Platform serves 100,000+ students with a 95% course completion rate improvement."
+    outcome: "Platform serves 100,000+ students with a 95% course completion rate improvement.",
+    liveurl: "https://upwork.com"
   }
 ];
