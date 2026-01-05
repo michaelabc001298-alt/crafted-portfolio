@@ -1,7 +1,7 @@
-import project1 from "@/assets/project-1.jpg";
-import project2 from "@/assets/project-2.jpg";
-import project3 from "@/assets/project-3.jpg";
-import project4 from "@/assets/project-4.jpg";
+import project1 from "@/assets/project-1.png";
+import project2 from "@/assets/project-2.png";
+import project3 from "@/assets/project-3.png";
+import project4 from "@/assets/project-4.png";
 import project5 from "@/assets/project-5.jpg";
 import project6 from "@/assets/project-6.jpg";
 import project7 from "@/assets/project-7.jpg";
@@ -25,71 +25,103 @@ export interface Project {
 export const projects: Project[] = [
   {
     id: "1",
-    title: "E-Commerce Analytics Platform",
-    shortDescription: "A comprehensive dashboard for tracking sales, inventory, and customer behavior analytics.",
-    fullDescription: `This project represents one of the most comprehensive analytics solutions I've built in my career. The platform was designed to handle the complex needs of a rapidly growing e-commerce business that was struggling to make sense of their massive data volumes.
-
-The core of the system is a real-time data processing pipeline that ingests millions of events daily from various sources including web traffic, mobile apps, point-of-sale systems, and third-party marketplaces. We implemented a sophisticated ETL process that cleanses, transforms, and aggregates this data into actionable insights.
-
-On the frontend, I led the development of an intuitive dashboard interface using React and TypeScript. The dashboard features over 50 interactive visualizations built with D3.js, including custom charts for funnel analysis, cohort retention, and geographic heat maps. Users can create custom reports by dragging and dropping metrics and dimensions, with results rendered in real-time.
-
-The backend architecture was designed for horizontal scalability, utilizing Node.js microservices orchestrated through Kubernetes. We implemented intelligent caching strategies with Redis that reduced average query times by 85%. The PostgreSQL database was optimized with carefully designed indexes, materialized views, and partitioning strategies to handle the ever-growing data volume.
-
-One of the most impactful features was the anomaly detection system that uses statistical models to identify unusual patterns in sales, inventory, or customer behavior. This proactive alerting has helped the client prevent stockouts and identify fraud attempts before they became major issues.`,
+    title: "Spazio Interni - Luxury Interior Home Design Showroom Website",
+    shortDescription: "A modern web showcase for a luxury Italian kitchen and home interiors brand.",
+    fullDescription: `Spazio Interni is a premier interior design showroom specializing in luxury Italian kitchens, bathrooms, closets, and furniture. 
+    
+    The website was built to showcase high-end products, highlight projects, and capture client inquiries. 
+    
+    As the Senior Full-Stack Engineer, I handled end-to-end development, including front-end UI/UX, Python back-end development, database integration, and production deployment.`,
     image: project1,
-    technologies: ["React", "TypeScript", "Node.js", "PostgreSQL", "D3.js", "Redis"],
-    role: "Lead Full-Stack Developer",
-    duration: "8 months",
-    challenges: `The primary challenge was optimizing database queries for large datasets while maintaining sub-second response times for the dashboard.
+    technologies: ["UI/UX Design", "React", "TypeScript","Next.js", "Node.js", "PostgreSQL", "SEO Optimization"],
+    role: "Full-Stack Developer",
+    duration: "",
+    challenges: `
+              - Responsive Design: Ensuring the website works flawlessly across desktop, tablet, and mobile devices without layout issues.
 
-We faced significant hurdles in implementing real-time data streaming without causing performance degradation during peak traffic hours. The initial architecture couldn't handle the concurrent load of data ingestion and reporting queries.
+              - Dynamic Product Showcase: Displaying multiple categories of luxury products (kitchens, closets, vanities, furniture) with smooth navigation and filter functionality.
 
-Another major challenge was designing a flexible schema that could accommodate the client's evolving business requirements without requiring major refactoring. We solved this through a combination of JSON columns for dynamic attributes and a robust migration strategy.
+              - Backend Functionality: Implementing Python-based server logic for forms, catalog requests, and dynamic content while maintaining security and reliability.
 
-Memory management for the D3.js visualizations required careful optimization to prevent browser crashes when rendering charts with hundreds of thousands of data points. We implemented virtual scrolling and progressive loading techniques to address this.`,
-    outcome: `The platform exceeded all initial success metrics and transformed how the client operates their business.
+              - Performance Optimization: Managing high-resolution images and media while reducing load time and maintaining smooth user experience.
 
-Increased operational efficiency by 40% through automated reporting and real-time alerts, eliminating the need for manual data compilation that previously took a dedicated analyst team several days each week.
+              - SEO & Analytics: Structuring the site for search engines and integrating Google Analytics to measure engagement.`,
+    outcome: `
 
-Reduced report generation time from hours to seconds, enabling leadership to make data-driven decisions in real-time rather than relying on weekly or monthly summaries.
+      Loading Speed: Reduced average page load time by 45%, from ~4.5s to ~2.5s.
 
-The anomaly detection system identified a fraud pattern that was costing the business over $50,000 monthly, paying for the entire project within the first quarter.
+      Responsive Performance: Mobile and tablet usability score increased by 35%, based on Lighthouse testing.
 
-Customer retention improved by 15% after the client used cohort analysis insights to optimize their email marketing campaigns and loyalty programs.`
+      Lead Capture: Implemented dynamic contact forms and catalog requests, resulting in 25–30% more client inquiries within the first 3 months.
+
+      SEO Improvement: On-page SEO optimization increased organic search visibility by 40% in Google search results.
+
+      User Engagement: Interactive UI/UX elements improved time on site by 20%, enhancing user experience and brand perception.
+    
+    `
   },
   {
     id: "2",
-    title: "Mobile Banking Application",
-    shortDescription: "Secure mobile banking solution with biometric authentication and real-time transactions.",
+    title: "Invicta Watch - Enterprise E-Commerce Website",
+    shortDescription: "A responsive e-commerce website for a global watch brand, showcasing product collections with a modern user interface.",
     fullDescription: "Developed a cross-platform mobile banking application featuring biometric authentication, real-time transaction processing, and comprehensive account management. The app integrates with core banking systems and provides users with a seamless financial management experience.",
     image: project2,
-    technologies: ["React Native", "TypeScript", "Node.js", "MongoDB", "AWS", "Plaid API"],
-    role: "Senior Mobile Developer",
-    duration: "12 months",
-    challenges: "Implementing bank-grade security protocols while maintaining an intuitive user experience and ensuring PCI DSS compliance.",
-    outcome: "Achieved 4.8-star rating on app stores with over 500,000 downloads in the first quarter."
+    technologies: ["JavaScript", "Vue.js", "Python", "PHP", "MongoDB", "AWS", "Laravel", "Front-End Performance Optimization"],
+    role: "Full Stack Developer",
+    duration: "",
+    challenges: `Handling a large product catalog with multiple collections and filters.
+                 Optimizing page load speed while serving high-resolution product images
+Maintaining consistent UX across desktop, tablet, and mobile
+
+Ensuring the front-end remains scalable under high traffic`,
+    outcome: `Page load time reduced by ~30–40% through asset optimization and efficient front-end rendering
+
+Mobile performance score improved by ~35% based on responsive and layout optimizations
+
+User navigation efficiency increased by ~25%, reducing time to find products
+
+Bounce rate reduced by ~20% due to improved UI clarity and faster loading
+
+Delivered a scalable front-end architecture capable of supporting high-traffic campaigns`
   },
   {
     id: "3",
-    title: "AI-Powered Analytics Dashboard",
-    shortDescription: "Machine learning platform for predictive analytics and business intelligence.",
-    fullDescription: "Created an intelligent analytics platform that leverages machine learning algorithms to provide predictive insights. Features include neural network visualizations, automated anomaly detection, and customizable KPI tracking with natural language query capabilities.",
+    title: "Aetna - National Health Insurance & Member Portal Website",
+    shortDescription: "This is the official online platform for a leading U.S. health insurance provider, offering plan information, secure member access, and digital tools for managing healthcare coverage.",
+    fullDescription: `This is a web project  a leading health insurance provider. I implemented the full-stack development, including responsive front-end pages, secure member portal integration, and database-driven back-end services. The platform allows users to browse insurance plans, manage claims, track benefits, and access digital tools efficiently across devices.`,
     image: project3,
-    technologies: ["Python", "TensorFlow", "React", "FastAPI", "PostgreSQL", "Docker"],
-    role: "ML Engineer & Frontend Developer",
-    duration: "10 months",
-    challenges: "Training models on diverse datasets while maintaining prediction accuracy and building intuitive visualizations for complex ML outputs.",
-    outcome: "Enabled clients to predict market trends with 85% accuracy, leading to a 25% increase in revenue."
+    technologies: ["Java", "Python", "React", "SEO Optimization", "SQL"],
+    role: "Full stack developer",
+    duration: "",
+    challenges: `Presenting complex insurance plan information clearly for individuals, families, and employers
+
+Maintaining secure login and HIPAA-compliant data handling
+
+Ensuring fast performance and scalable architecture for millions of users
+
+Implementing consistent responsive design across desktop, tablet, and mobile
+
+Integrating analytics and usage tracking without affecting performance`,
+    outcome: `Page load times reduced by ~35%, improving overall user experience
+
+Mobile usability score increased by ~30% due to responsive design optimization
+
+Member engagement improved by ~25% with intuitive navigation and digital tools
+
+Delivered a scalable, secure platform capable of supporting high traffic and future expansions
+
+Strengthened Aetna’s digital presence and enhanced self-service capabilities for users`,
   },
   {
     id: "4",
-    title: "Social Media Management Suite",
-    shortDescription: "All-in-one platform for content scheduling, analytics, and social media automation.",
-    fullDescription: "Designed and built a comprehensive social media management platform featuring content calendar, automated scheduling, cross-platform analytics, and AI-powered content suggestions. Integrated with major social networks and provided team collaboration features.",
+    title: "De Wit Neumática - Industrial Automation Product Website",
+    shortDescription: "This is a project to help industrial clients and engineers discover pneumatic products and technical solutions efficiently.",
+    fullDescription: `This project is for De Wit Neumática, an industrial automation company providing pneumatic components and solutions. I developed and implemented the responsive front-end interface for product catalogs, industry applications, and company information, along with back-end features for content organization and contact management. The site ensures users can easily explore products, solutions, and company information across all devices.`,
+
     image: project4,
-    technologies: ["Next.js", "TypeScript", "Prisma", "PostgreSQL", "Redis", "Social APIs"],
+    technologies: ["Next.js", "TypeScript", "Python", "PostgreSQL", "Redis", "Social APIs"],
     role: "Full-Stack Developer",
-    duration: "6 months",
+    duration: "",
     challenges: "Managing rate limits across multiple social platforms and synchronizing content across different time zones.",
     outcome: "Helped marketing teams reduce content scheduling time by 60% and improve engagement rates by 35%."
   },
